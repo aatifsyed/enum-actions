@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "enum-actions"
+version = "0.1.0"
+description = "For easy selection command-line selection of an `enum.Enum` variant with `argparse.Action`s."
+authors = ["Aatif Syed <aatifsyedyp@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^21.6b0"
+mypy = "^0.910"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

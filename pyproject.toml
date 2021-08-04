@@ -1,18 +1,22 @@
 [tool.poetry]
 name = "enum-actions"
-version = "0.1.0"
+version = "0.1.1"
 description = "For easy selection command-line selection of an `enum.Enum` variant with `argparse.Action`s."
 authors = ["Aatif Syed <aatifsyedyp@gmail.com>"]
 readme = "README.md"
+repository = "https://github.com/aatifsyed/enum-actions"
 
-[tool.poetry.dependencies]
-python = "^3.8"
 
-[tool.poetry.dev-dependencies]
-pytest = "^5.2"
-black = "^21.6b0"
-mypy = "^0.910"
+dependencies = { python = "^3.8" }
+dev-dependencies = { pytest = "^6.0", black = "^21.6b0", mypy = "^0.910" }
+include = ["enum_actions/py.typed"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+addopts = ["--doctest-glob=README.md"]

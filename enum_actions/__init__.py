@@ -8,6 +8,12 @@ __all__ = ["enum_action"]
 
 
 def enum_action(enum_class: E):
+    """Return an Action which will select a variant of `enum_class` according to the argument.
+
+    `default` may be a str, or an instance of enum_class - the resulting argparse.Namespace will always be an instance of enum_class.
+
+    Note that variants of `enum_class` are expected to have upper case names by this action."""
+
     class EnumAction(argparse.Action):
         def __init__(
             self,
@@ -28,8 +34,13 @@ def enum_action(enum_class: E):
             help: Optional[str] = None,
             metavar: Optional[Union[str, Tuple[str, ...]]] = None,
         ) -> None:
-            if isinstance(default, enum.Enum) and help is not None:
-                help = f"{help} (default: {default.name.lower()})"
+            if isinstance(default, str):
+                default = enum_class[default.upper()]
+            if default is not None:
+                if help is None:
+                    help = f"(default: {default.name.lower()})"
+                else:
+                    help = f"{help} (default: {default.name.lower()})"
             self.cls = enum_class
             super().__init__(
                 option_strings,

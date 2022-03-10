@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "enum-actions"
-version = "0.1.1"
+version = "0.1.2"
 description = "For easy selection command-line selection of an `enum.Enum` variant with `argparse.Action`s."
 authors = ["Aatif Syed <aatifsyedyp@gmail.com>"]
 readme = "README.md"
 repository = "https://github.com/aatifsyed/enum-actions"
 
 
-dependencies = { python = "^3.8" }
+dependencies = { python = "^3.6.2,<4.0" }
 dev-dependencies = { pytest = "^6.0", black = "^21.6b0", mypy = "^0.910" }
 include = ["enum_actions/py.typed"]
 
